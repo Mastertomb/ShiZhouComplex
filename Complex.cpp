@@ -43,7 +43,7 @@ void Complex::SetImage(double i)
 	_image = i;
 }
 
-Complex Complex::operator+(const Complex& x)//return tmp会调用拷贝构造函数Complex::Complex(const Complex& x)
+Complex Complex::operator+(const Complex& x)const//return tmp会调用拷贝构造函数Complex::Complex(const Complex& x)
 {
 	//Complex tmp;//stack中的中间变量
 	//tmp._real = _real + x._real;
@@ -69,6 +69,22 @@ Complex& Complex::operator=(const Complex& x)
 		_image = x._image;
 	}
 	return *this;
+}
+
+Complex& Complex::operator+=(const Complex& x)
+{
+	_real += x._real;//这就是不加const的原因
+	_image += x._image;
+	return *this;
+}
+
+bool Complex::operator==(const Complex& x)const
+{
+	return (_real == x._real && _image == x._image);
+}
+bool Complex::operator!=(const Complex& x)const
+{
+	return (_real != x._real || _image != x._image);
 }
 
 

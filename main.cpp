@@ -25,7 +25,12 @@ int main()
 	e = ++d;
 	cout << e << endl;
 	cout << d << endl;
+
+	cout << (e == d) << endl;
+	cout << (e != d) << endl;
+
 	cin >> e;
+	e += a;
 	cout << e << endl;
 	return 0;
 }

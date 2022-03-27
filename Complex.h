@@ -16,9 +16,12 @@ public:
 	void SetImage(double i);
 	//运算符重载
 	//返回值     运算符    const修饰Complex&
-	Complex operator+(const Complex& x);
+	Complex operator+(const Complex& x) const;
 	//Complex operator=(const Complex& x);
 	Complex& operator=(const Complex& x);//这种更为常用,引用传递防止产生拷贝构造
+	Complex& operator+=(const Complex& x);
+	bool operator==(const Complex& x)const;
+	bool operator!=(const Complex& x)const;
 
 	//前置和后置操作符++,--
 	Complex& operator++();//前置
